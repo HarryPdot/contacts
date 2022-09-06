@@ -13,7 +13,11 @@ function App() {
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users')
     .then(res => {
-      setContacts(res.data)
+      setContacts(res.data.sort((a, b) => {
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
+        return 0;
+      }))
     })
   }, [])
 
@@ -46,18 +50,18 @@ function App() {
               </section>
             </li>)
         })
-      :
-      searchResults.map((contact, i) => {
-        return (
-          <li key={i} className='contact-card'>
-            <h4 className='contact-card-name'>{contact.name}</h4>
-            <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
-            <section className='contact-more-details'>
-              <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
-            </section>
-          </li>)
-      })
-      }
+        :
+        searchResults.map((contact, i) => {
+          return (
+            <li key={i} className='contact-card'>
+              <h4 className='contact-card-name'>{contact.name}</h4>
+              <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
+              <section className='contact-more-details'>
+                <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
+              </section>
+            </li>)
+        })
+        }
       </ul>
     </div>
   );
