@@ -32,8 +32,9 @@ body, #root, html {
 }
 
 .contact-card-list {
+  margin: 0;
   padding: 0;
-  height: 80%;
+  height: 85%;
   overflow: scroll;
 }
 
@@ -41,10 +42,35 @@ body, #root, html {
   list-style-type: none;
   padding: 10px 10px;
   border-bottom: 1px grey solid;
+  position: relative;
 }
 
 .contact-card > h4 {
   margin: 0;
+}
+
+.contact-card-name,
+.contact-card-phone {
+  color: white;
+}
+
+.contact-list-phone-icon {
+  color: rgb(113, 177, 125);
+  margin-right: 5px;
+}
+
+.contact-more-details {
+  position: absolute;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-more-details-button {
+  height: 30px;
 }
 
 @media only screen and (min-width: 850px) {
