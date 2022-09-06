@@ -2,11 +2,13 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa'
+import { FcViewDetails } from 'react-icons/fc'
 
 function App() {
   const [contacts, setContacts] = useState([])
   const [search, setSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
+  const [contactDetails, setContactDetails] = useState([])
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -23,6 +25,11 @@ function App() {
     setSearch(e.target.value)
   }
 
+  const handleContactDetails = (contact) => {
+    console.log(contact)
+    setContactDetails(contact)
+  }
+
   return (
     <div className="App">
       <header className='search-header'>
@@ -35,7 +42,7 @@ function App() {
               <h4 className='contact-card-name'>{contact.name}</h4>
               <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
               <section className='contact-more-details'>
-                <button className='contact-more-details-button'>See Details</button>
+                <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
               </section>
             </li>)
         })
@@ -46,7 +53,7 @@ function App() {
             <h4 className='contact-card-name'>{contact.name}</h4>
             <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
             <section className='contact-more-details'>
-              <button className='contact-more-details-button'>See Details</button>
+              <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
             </section>
           </li>)
       })
