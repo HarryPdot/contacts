@@ -3,12 +3,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaPhoneAlt } from 'react-icons/fa'
 import { FcViewDetails } from 'react-icons/fc'
+import ContactDetail from './Components/ContactDetail/ContactDetail'
 
 function App() {
   const [contacts, setContacts] = useState([])
   const [search, setSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
-  const [contactDetails, setContactDetails] = useState([])
+  const [selectedContactDetails, setSelectedContactDetails] = useState([])
+  const [isOpen, setOpen] = useState(true)
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -30,12 +32,14 @@ function App() {
   }
 
   const handleContactDetails = (contact) => {
-    console.log(contact)
-    setContactDetails(contact)
+    setSelectedContactDetails(contact)
+    setOpen(true)
   }
 
   return (
     <div className="App">
+      
+      {<ContactDetail selectedContactDetails={selectedContactDetails} isOpen={isOpen} setOpen={setOpen}/>}
       <header className='search-header'>
         <input type='text' className='search-bar' placeholder='Search' onChange={handleSearch}/>
       </header>

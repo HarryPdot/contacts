@@ -35,7 +35,7 @@ body, #root, html {
   margin: 0;
   padding: 0;
   height: 85%;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .contact-card {

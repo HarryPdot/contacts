@@ -1,0 +1,51 @@
+.contact-details-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    background-color: rgb(49, 52, 57);
+    right: 0;
+
+    margin-right: -480px;
+}
+
+.contact-details-name-header {
+    height: 15%;
+    background-color: rgb(113, 177, 125);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details-name {
+    margin: 0;
+}
+
+/* CSS Transition */
+.enter {
+    margin-right: -480px;
+}
+
+.enterDone {
+    transition: 0.35s ease-in-out;
+    margin-right: 0;
+}
+
+.exit {
+    margin-right: 0;
+}
+
+.exitActive {
+    transition: 0.35s ease-in-out;
+    margin-right: -480px;
+}
+
+.exitDone {
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 550px) {
+    .contact-details-container {
+        width: 480px;
+    }
+}
