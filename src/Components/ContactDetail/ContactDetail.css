@@ -4,9 +4,10 @@
     position: fixed;
     z-index: 99;
     background-color: rgb(49, 52, 57);
-    right: 0;
+    border-left: black 1px solid;
 
-    margin-right: -480px;
+    right: 0;
+    margin-right: -400px;
 }
 
 .contact-details-name-header {
@@ -21,9 +22,29 @@
     margin: 0;
 }
 
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.contact-details-map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.contact-details-info-container {
+    height: 85%;
+    overflow-y: scroll;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* CSS Transition */
 .enter {
-    margin-right: -480px;
+    margin-right: -400px;
 }
 
 .enterDone {
@@ -37,7 +58,7 @@
 
 .exitActive {
     transition: 0.35s ease-in-out;
-    margin-right: -480px;
+    margin-right: -400px;
 }
 
 .exitDone {
@@ -46,6 +67,6 @@
 
 @media only screen and (min-width: 550px) {
     .contact-details-container {
-        width: 480px;
+        width: 400px;
     }
 }

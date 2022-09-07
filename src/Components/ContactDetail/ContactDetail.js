@@ -23,10 +23,24 @@ export default function ContactDetail({ selectedContactDetails, isOpen, setOpen 
             exitDone: "exitDone",
         }}>
             <div>
-                <header className='contact-details-name-header'>
-                    <button onClick={handleOpen} className='test'>X</button>
-                    <h1 className='contact-details-name'>{selectedContactDetails.name}</h1>
-                </header>
+                <button onClick={handleOpen} className='exit-button'>X</button>
+                {selectedContactDetails.map((contact, i) => {
+                    return(
+                        <div key={i} className='contact-details-map-container'>
+                            <header className='contact-details-name-header'>
+                                <h1 className='contact-details-name'>{contact.name}</h1>
+                            </header>
+                            <section key={i} className='contact-details-info-container'>
+                                <div>Phone: {contact.phone}</div>
+                                <div>Username: {contact.username}</div>
+                                <div>Email: {contact.email}</div>
+                                <div>Address: {contact.address.street}, {contact.address.suite}, {contact.address.city}, {contact.address.zipcode} </div>
+                                <div>Website: {contact.website}</div>
+                                <div>Company: {contact.company.name}</div>
+                            </section>
+                        </div>
+                    )
+                })}
             </div>
         </CSSTransition>
     )

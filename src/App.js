@@ -10,7 +10,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [selectedContactDetails, setSelectedContactDetails] = useState([])
-  const [isOpen, setOpen] = useState(true)
+  const [isOpen, setOpen] = useState(false)
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -32,7 +32,7 @@ function App() {
   }
 
   const handleContactDetails = (contact) => {
-    setSelectedContactDetails(contact)
+    setSelectedContactDetails([contact])
     setOpen(true)
   }
 
@@ -46,23 +46,17 @@ function App() {
       <ul className='contact-card-list'>
         {search.length === 0 ? contacts.map((contact, i) => {
           return (
-            <li key={i} className='contact-card'>
+            <li key={i} className='contact-card' onClick={() => handleContactDetails(contact)}>
               <h4 className='contact-card-name'>{contact.name}</h4>
               <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
-              <section className='contact-more-details'>
-                <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
-              </section>
             </li>)
         })
         :
         searchResults.map((contact, i) => {
           return (
-            <li key={i} className='contact-card'>
+            <li key={i} className='contact-card' onClick={() => handleContactDetails(contact)}>
               <h4 className='contact-card-name'>{contact.name}</h4>
               <div className='contact-card-phone'><span className='contact-list-phone-icon'><FaPhoneAlt/></span>{contact.phone}</div>
-              <section className='contact-more-details'>
-                <FcViewDetails className='contact-list-details-icon' onClick={() => handleContactDetails(contact)}/>
-              </section>
             </li>)
         })
         }
