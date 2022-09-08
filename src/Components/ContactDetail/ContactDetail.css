@@ -3,43 +3,110 @@
     width: 100%;
     position: fixed;
     z-index: 99;
-    background-color: rgb(49, 52, 57);
-    border-left: black 1px solid;
+    background-color: black;
+    border: 2px solid rgb(158, 156, 156);
 
     right: 0;
     margin-right: -400px;
 }
 
 .contact-details-name-header {
-    height: 15%;
-    background-color: rgb(113, 177, 125);
+    height: 40%;
+    width: 90%;
+    background-color: black;
+    box-shadow: 2px 2px rgb(158, 156, 156), -1px 0 .4em rgb(158, 156, 156);
+    border-radius: 10px;
+    border: 2px solid grey;
+    
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:space-evenly;
+    flex-direction: column;
+}
+
+.name-email-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-details-name {
     margin: 0;
+    color: white;
+    font-size: 24px;
+}
+
+.contact-email {
+    color: grey;
+    font-size: .9em;
+}
+
+.user-company-section {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.username,
+.company,
+.website,
+.street,
+.zipcode,
+.city {
+    color: grey;
+    font-size: .9em;
+}
+
+.user-website,
+.user-street,
+.user-zipcode,
+.user-city {
+    color: white;
+    font-size: 16px;
+}
+
+.phone-number {
+    color: white;
+
+}
+
+.phone-number > span {
+    margin-right: 5px;
+    color: green;
 }
 
 .exit-button {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+}
+
+.exit-button:hover {
+    color: grey;
 }
 
 .contact-details-map-container {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contact-details-info-container {
-    height: 85%;
-    overflow-y: scroll;
+.contact-details-address-website {
+    height: 30%;
+    width: 90%;
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-evenly;
 }
 
 /* CSS Transition */
@@ -68,5 +135,6 @@
 @media only screen and (min-width: 550px) {
     .contact-details-container {
         width: 400px;
+
     }
 }

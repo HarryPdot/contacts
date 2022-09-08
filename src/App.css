@@ -11,6 +11,20 @@ body, #root, html {
   height: 100%;
   width: 100%;
   background-color: rgb(49, 52, 57);
+  display: flex;
+  flex-direction: row;
+}
+
+.header-card-list-container {
+  height: 100%;
+  width: 100%;
+  transition: 0.35s ease-in-out;
+}
+
+.header-card-list-container-open {
+  height: 100%;
+  width: 100%;
+  transition: 0.35s ease-in-out;
 }
 
 .search-header {
@@ -46,6 +60,7 @@ body, #root, html {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
 }
 
 .contact-card > h4 {
@@ -86,6 +101,23 @@ body, #root, html {
   font-size: 26px;
   cursor: pointer;
 }
-@media only screen and (min-width: 850px) {
 
+.more-info-icon {
+  position: absolute;
+  right: 20px;
+  top: 35%;
+  font-size: 20px;
+}
+
+.more-info-icon-hover {
+  color: white;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .header-card-list-container-open {
+    height: 100%;
+    width: calc(100% - 400px);
+    transition: 0.35s ease-in-out;
+  }
 }
